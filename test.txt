@@ -1,0 +1,467 @@
+
+class RiskCreate(BaseModel):
+    # Claves primarias y foráneas
+    n_PORiskMasterFK: Optional[int] = None
+    n_POTermMasterFK: Optional[int] = None
+    n_CreatedTransactionFK: Optional[int] = None
+
+    # Información de la comunidad
+    s_CommunityNumber: Optional[int] = None
+    s_CommunityName: Optional[str] = None
+    s_PanelNumber: Optional[int] = None
+    s_MapSuffix: Optional[str] = None
+    s_FloodZone: Optional[str] = None
+    s_FloodZoneGroup: Optional[str] = None
+    S_CommunitySFHA: Optional[str] = None
+    s_CountyName: Optional[str] = None
+
+    # Tipo de grandfathering y elevación
+    s_GrandfatheringTypeCode: Optional[str] = None
+    s_BaseElevation: Optional[int] = None
+    s_GICommunityNo: Optional[int] = None
+    s_GIPanelNo: Optional[int] = None
+    s_GIMapSuffix: Optional[str] = None
+    s_GIMapZone: Optional[str] = None
+
+    # Información de la póliza
+    s_PriorPolicyNo: Optional[str] = None
+    s_PriorPolicyExpDt: Optional[str] = None
+    s_PriorCommunityNumber: Optional[str] = None
+    s_PriorPanelNumber: Optional[str] = None
+    s_PriorMapSuffix: Optional[str] = None
+    s_PriorFloodZone: Optional[str] = None
+    d_PriorMapDate: Optional[str] = None
+    s_PriorBaseElevation: Optional[str] = None
+    s_PolicyTypeCode: Optional[str] = None
+    s_PolicyWaitingPeriod: Optional[str] = None
+    d_PropertyPurchaseDt: Optional[str] = None
+    s_PolicyMeetPRP: Optional[str] = None
+
+    # Información de la propiedad y tipo de seguro
+    d_FloodLoanClosingDt: Optional[str] = None
+    s_PriorCompanyNAIC: Optional[str] = None
+    d_PriorNBDate: Optional[str] = None
+    s_isInsuredTenant: Optional[str] = None
+    s_RentalProperty: Optional[str] = None
+    s_CondoOwnership: Optional[str] = None
+    s_CondoDescription: Optional[str] = None
+    s_IsCoverageFor: Optional[str] = None
+    s_ManufactureMobileHome: Optional[str] = None
+    s_DtOfConstructionSource: Optional[str] = None
+    d_DateOfConstruction: Optional[date] = None
+    s_BuildingCourseConstruction: Optional[str] = None
+    s_BuildingOverWater: Optional[str] = None
+
+    # Ocupación y propósito del edificio
+    s_IsFoudationPartInWater: Optional[str] = None
+    s_BuildingFederalLand: Optional[str] = None
+    s_Occupancy: Optional[str] = None
+    s_InsuredResides: Optional[str] = None
+    s_NoOfUnits: Optional[int] = None
+    s_BuildingPurpose: Optional[str] = None
+    s_AddExtCoverage: Optional[str] = None
+
+    # Más información sobre el edificio y la propiedad
+    s_Foundation: Optional[str] = None
+    s_NoOfFloors: Optional[str] = None
+    s_IsInsuredNonProfitEnt: Optional[str] = None
+    s_IsBuildingHouseWarship: Optional[str] = None
+    s_BuildingType: Optional[str] = None
+    s_BuildingUse: Optional[str] = None
+    s_IsSmallBusinessEmp: Optional[str] = None
+    s_IsAgriculturalStruct: Optional[str] = None
+    s_BuildingDescription: Optional[str] = None
+
+    # Información sobre el seguro y la construcción
+    s_CBRSorOPA: Optional[str] = None
+    d_CBRSOPADate: Optional[str] = None
+    s_SevereLossProperty: Optional[str] = None
+    s_FloodProgramType: Optional[str] = None
+    s_FloodConstructionType: Optional[str] = None
+    s_isBuildingWallRoof: Optional[str] = None
+
+    # Información adicional
+    d_InitialFirmDate: Optional[date] = None
+    s_DetachedGarage: Optional[str] = None
+    s_AddExtOtherAttachedGarage: Optional[str] = None
+    n_ReplacementCost: Optional[Decimal] = None
+    n_ReplacementCostRatio: Optional[int] = None
+    s_OtherBuilding: Optional[str] = None
+    s_ContentLocationTRRP: Optional[str] = None
+    s_PersonalPropertyHousehold: Optional[str] = None
+    s_PersonalPropertyHouseholdDescribe: Optional[str] = None
+    s_WithCOC_OR_EC: Optional[str] = None
+    s_ElevationDifference: Optional[int] = None
+    s_ElevationDifferenceTRRP: Optional[str] = None
+    s_ElevationCertificateType: Optional[int] = None
+
+    # Otros detalles
+    s_ElevatedBldgFreeObstruction: Optional[int] = None
+    s_SubstantialImprovement: Optional[str] = None
+    s_PolicyAssignment: Optional[str] = None
+    n_PercResidentialPurposes: Optional[int] = None
+    s_IsTownRowCondo: Optional[str] = None
+    s_ResidentialUnit: Optional[str] = None
+    s_NonResidentialUnit: Optional[str] = None
+    s_TotalSqFootage: Optional[int] = None
+    s_NonResidSqFootage: Optional[str] = None
+
+    # Información adicional sobre el parque de casas móviles, hipoteca y demás
+    s_FloorInBuild: Optional[str] = None
+    s_MobileHomePark: Optional[str] = None
+    d_MobileHomeParkDate: Optional[str] = None
+    s_IsPolicyMortgage: Optional[str] = None
+    s_BaseFloodElevation: Optional[int] = None
+    d_CurrentFirmDate: Optional[date] = None
+    s_IsPriorFIPPolicy: Optional[str] = None
+    s_IsReqByLender: Optional[str] = None
+    s_IsPriorNFIPLapsed: Optional[str] = None
+
+    # Fecha de suspensión y reinstalación
+    s_IsCommunitySuspension: Optional[str] = None
+    d_SuspensionDate: Optional[date] = None
+    d_ReinstatementDate: Optional[date] = None
+    s_IsEffeWithIn180Days: Optional[str] = None
+
+    # Otras condiciones y propiedades
+    s_NoOfElevator: Optional[int] = None
+    s_BldgConstructionType: Optional[str] = None
+    s_NoOfDetatchedStruct: Optional[int] = None
+    s_IsBldgContainME: Optional[str] = None
+    s_AllMachinaryElevated: Optional[str] = None
+    s_UnitLocatedOnFloor: Optional[str] = None
+    s_IsPropNewlyMapped: Optional[str] = None
+    s_IsNewPurchase: Optional[str] = None
+    s_IsBldgNRHP: Optional[str] = None
+
+    # Fechas y otra información
+    d_SubstantialImprovmentDate: Optional[str] = None
+    s_IsPreFirmSubsidyEligible: Optional[str] = None
+    s_RiskRating20: Optional[str] = None
+    s_IsAddInsureds: Optional[str] = None
+    s_TableNo: Optional[str] = None
+
+    # Metadatos y datos de usuario
+    #metadata: Optional[str] = None
+    n_CreatedUser: Optional[str] = None
+    d_CreatedDate: Optional[datetime] = None
+    n_UpdatedUser: Optional[str] = None
+    d_UpdatedDate: Optional[datetime] = None
+
+
+    
+
+
+class RiskUpdate(BaseModel):
+    # Claves primarias y foráneas
+    n_PORiskMasterFK: Optional[int] = None
+    n_POTermMasterFK: Optional[int] = None
+    n_CreatedTransactionFK: Optional[int] = None
+
+    # Información de la comunidad
+    s_CommunityNumber: Optional[int] = None
+    s_CommunityName: Optional[str] = None
+    s_PanelNumber: Optional[int] = None
+    s_MapSuffix: Optional[str] = None
+    s_FloodZone: Optional[str] = None
+    s_FloodZoneGroup: Optional[str] = None
+    S_CommunitySFHA: Optional[str] = None
+    s_CountyName: Optional[str] = None
+
+    # Tipo de grandfathering y elevación
+    s_GrandfatheringTypeCode: Optional[str] = None
+    s_BaseElevation: Optional[int] = None
+    s_GICommunityNo: Optional[int] = None
+    s_GIPanelNo: Optional[int] = None
+    s_GIMapSuffix: Optional[str] = None
+    s_GIMapZone: Optional[str] = None
+
+    # Información de la póliza
+    s_PriorPolicyNo: Optional[str] = None
+    s_PriorPolicyExpDt: Optional[str] = None
+    s_PriorCommunityNumber: Optional[str] = None
+    s_PriorPanelNumber: Optional[str] = None
+    s_PriorMapSuffix: Optional[str] = None
+    s_PriorFloodZone: Optional[str] = None
+    d_PriorMapDate: Optional[str] = None
+    s_PriorBaseElevation: Optional[str] = None
+    s_PolicyTypeCode: Optional[str] = None
+    s_PolicyWaitingPeriod: Optional[str] = None
+    d_PropertyPurchaseDt: Optional[str] = None
+    s_PolicyMeetPRP: Optional[str] = None
+
+    # Información de la propiedad y tipo de seguro
+    d_FloodLoanClosingDt: Optional[str] = None
+    s_PriorCompanyNAIC: Optional[str] = None
+    d_PriorNBDate: Optional[str] = None
+    s_isInsuredTenant: Optional[str] = None
+    s_RentalProperty: Optional[str] = None
+    s_CondoOwnership: Optional[str] = None
+    s_CondoDescription: Optional[str] = None
+    s_IsCoverageFor: Optional[str] = None
+    s_ManufactureMobileHome: Optional[str] = None
+    s_DtOfConstructionSource: Optional[str] = None
+    d_DateOfConstruction: Optional[date] = None
+    s_BuildingCourseConstruction: Optional[str] = None
+    s_BuildingOverWater: Optional[str] = None
+
+    # Ocupación y propósito del edificio
+    s_IsFoudationPartInWater: Optional[str] = None
+    s_BuildingFederalLand: Optional[str] = None
+    s_Occupancy: Optional[str] = None
+    s_InsuredResides: Optional[str] = None
+    s_NoOfUnits: Optional[int] = None
+    s_BuildingPurpose: Optional[str] = None
+    s_AddExtCoverage: Optional[str] = None
+
+    # Más información sobre el edificio y la propiedad
+    s_Foundation: Optional[str] = None
+    s_NoOfFloors: Optional[str] = None
+    s_IsInsuredNonProfitEnt: Optional[str] = None
+    s_IsBuildingHouseWarship: Optional[str] = None
+    s_BuildingType: Optional[str] = None
+    s_BuildingUse: Optional[str] = None
+    s_IsSmallBusinessEmp: Optional[str] = None
+    s_IsAgriculturalStruct: Optional[str] = None
+    s_BuildingDescription: Optional[str] = None
+
+    # Información sobre el seguro y la construcción
+    s_CBRSorOPA: Optional[str] = None
+    d_CBRSOPADate: Optional[str] = None
+    s_SevereLossProperty: Optional[str] = None
+    s_FloodProgramType: Optional[str] = None
+    s_FloodConstructionType: Optional[str] = None
+    s_isBuildingWallRoof: Optional[str] = None
+
+    # Información adicional
+    d_InitialFirmDate: Optional[date] = None
+    s_DetachedGarage: Optional[str] = None
+    s_AddExtOtherAttachedGarage: Optional[str] = None
+    n_ReplacementCost: Optional[Decimal] = None
+    n_ReplacementCostRatio: Optional[int] = None
+    s_OtherBuilding: Optional[str] = None
+    s_ContentLocationTRRP: Optional[str] = None
+    s_PersonalPropertyHousehold: Optional[str] = None
+    s_PersonalPropertyHouseholdDescribe: Optional[str] = None
+    s_WithCOC_OR_EC: Optional[str] = None
+    s_ElevationDifference: Optional[int] = None
+    s_ElevationDifferenceTRRP: Optional[str] = None
+    s_ElevationCertificateType: Optional[int] = None
+
+    # Otros detalles
+    s_ElevatedBldgFreeObstruction: Optional[int] = None
+    s_SubstantialImprovement: Optional[str] = None
+    s_PolicyAssignment: Optional[str] = None
+    n_PercResidentialPurposes: Optional[int] = None
+    s_IsTownRowCondo: Optional[str] = None
+    s_ResidentialUnit: Optional[str] = None
+    s_NonResidentialUnit: Optional[str] = None
+    s_TotalSqFootage: Optional[int] = None
+    s_NonResidSqFootage: Optional[str] = None
+
+    # Información adicional sobre el parque de casas móviles, hipoteca y demás
+    s_FloorInBuild: Optional[str] = None
+    s_MobileHomePark: Optional[str] = None
+    d_MobileHomeParkDate: Optional[str] = None
+    s_IsPolicyMortgage: Optional[str] = None
+    s_BaseFloodElevation: Optional[int] = None
+    d_CurrentFirmDate: Optional[date] = None
+    s_IsPriorFIPPolicy: Optional[str] = None
+    s_IsReqByLender: Optional[str] = None
+    s_IsPriorNFIPLapsed: Optional[str] = None
+
+    # Fecha de suspensión y reinstalación
+    s_IsCommunitySuspension: Optional[str] = None
+    d_SuspensionDate: Optional[date] = None
+    d_ReinstatementDate: Optional[date] = None
+    s_IsEffeWithIn180Days: Optional[str] = None
+
+    # Otras condiciones y propiedades
+    s_NoOfElevator: Optional[int] = None
+    s_BldgConstructionType: Optional[str] = None
+    s_NoOfDetatchedStruct: Optional[int] = None
+    s_IsBldgContainME: Optional[str] = None
+    s_AllMachinaryElevated: Optional[str] = None
+    s_UnitLocatedOnFloor: Optional[str] = None
+    s_IsPropNewlyMapped: Optional[str] = None
+    s_IsNewPurchase: Optional[str] = None
+    s_IsBldgNRHP: Optional[str] = None
+
+    # Fechas y otra información
+    d_SubstantialImprovmentDate: Optional[str] = None
+    s_IsPreFirmSubsidyEligible: Optional[str] = None
+    s_RiskRating20: Optional[str] = None
+    s_IsAddInsureds: Optional[str] = None
+    s_TableNo: Optional[str] = None
+
+    # Metadatos y datos de usuario
+    #metadata: Optional[str] = None
+    n_CreatedUser: Optional[int] = None
+    d_CreatedDate: Optional[datetime] = None
+    n_UpdatedUser: Optional[int] = None
+    d_UpdatedDate: Optional[datetime] = None
+
+
+
+
+
+
+
+
+
+
+
+
+
+class Risk(Base):
+    __tablename__ = 'tb_risk_additional_flood_info'
+
+    # Claves primarias y foráneas
+    n_PORiskAdditionalFloodInfo_PK = Column(Integer, primary_key=True, autoincrement=True)
+    n_PORiskMasterFK = Column(Integer, nullable=False)
+    n_POTermMasterFK = Column(Integer, nullable=False)
+    n_CreatedTransactionFK = Column(Integer, nullable=False)
+
+    # Información de la comunidad
+    s_CommunityNumber = Column(Integer, nullable=False)
+    s_CommunityName = Column(String(255), nullable=False)
+    s_PanelNumber = Column(Integer, nullable=False)
+    s_MapSuffix = Column(String(50), nullable=True)
+    s_FloodZone = Column(String(50), nullable=True)
+    s_FloodZoneGroup = Column(String(50), nullable=True)
+    S_CommunitySFHA = Column(String(50), nullable=True)
+    s_CountyName = Column(String(255), nullable=True)
+
+    # Tipo de grandfathering y elevación
+    s_GrandfatheringTypeCode = Column(String(50), nullable=True)
+    s_BaseElevation = Column(Integer, nullable=True)
+    s_GICommunityNo = Column(Integer, nullable=True)
+    s_GIPanelNo = Column(Integer, nullable=True)
+    s_GIMapSuffix = Column(String(50), nullable=True)
+    s_GIMapZone = Column(String(50), nullable=True)
+
+    # Información de la póliza
+    s_PriorPolicyNo = Column(String(50), nullable=True)
+    s_PriorPolicyExpDt = Column(String(50), nullable=True)
+    s_PriorCommunityNumber = Column(String(50), nullable=True)
+    s_PriorPanelNumber = Column(String(50), nullable=True)
+    s_PriorMapSuffix = Column(String(50), nullable=True)
+    s_PriorFloodZone = Column(String(50), nullable=True)
+    d_PriorMapDate = Column(String(50), nullable=True)
+    s_PriorBaseElevation = Column(String(50), nullable=True)
+    s_PolicyTypeCode = Column(String(50), nullable=True)
+    s_PolicyWaitingPeriod = Column(String(50), nullable=True)
+    d_PropertyPurchaseDt = Column(String(50), nullable=True)
+    s_PolicyMeetPRP = Column(String(50), nullable=True)
+
+    # Información de la propiedad y tipo de seguro
+    d_FloodLoanClosingDt = Column(String(50), nullable=True)
+    s_PriorCompanyNAIC = Column(String(50), nullable=True)
+    d_PriorNBDate = Column(String(50), nullable=True)
+    s_isInsuredTenant = Column(String(50), nullable=True)
+    s_RentalProperty = Column(String(50), nullable=True)
+    s_CondoOwnership = Column(String(50), nullable=True)
+    s_CondoDescription = Column(String(255), nullable=True)
+    s_IsCoverageFor = Column(String(50), nullable=True)
+    s_ManufactureMobileHome = Column(String(50), nullable=True)
+    s_DtOfConstructionSource = Column(String(50), nullable=True)
+    d_DateOfConstruction = Column(Date, nullable=True)
+    s_BuildingCourseConstruction = Column(String(255), nullable=True)
+    s_BuildingOverWater = Column(String(50), nullable=True)
+
+    # Ocupación y propósito del edificio
+    s_IsFoudationPartInWater = Column(String(50), nullable=True)
+    s_BuildingFederalLand = Column(String(50), nullable=True)
+    s_Occupancy = Column(String(50), nullable=True)
+    s_InsuredResides = Column(String(50), nullable=True)
+    s_NoOfUnits = Column(Integer, nullable=True)
+    s_BuildingPurpose = Column(String(50), nullable=True)
+    s_AddExtCoverage = Column(String(50), nullable=True)
+
+    # Más información sobre el edificio y la propiedad
+    s_Foundation = Column(String(50), nullable=True)
+    s_NoOfFloors = Column(String(50), nullable=True)
+    s_IsInsuredNonProfitEnt = Column(String(50), nullable=True)
+    s_IsBuildingHouseWarship = Column(String(50), nullable=True)
+    s_BuildingType = Column(String(50), nullable=True)
+    s_BuildingUse = Column(String(50), nullable=True)
+    s_IsSmallBusinessEmp = Column(String(50), nullable=True)
+    s_IsAgriculturalStruct = Column(String(50), nullable=True)
+    s_BuildingDescription = Column(String(255), nullable=True)
+
+    # Información sobre el seguro y la construcción
+    s_CBRSorOPA = Column(String(50), nullable=True)
+    d_CBRSOPADate = Column(String(50), nullable=True)
+    s_SevereLossProperty = Column(String(50), nullable=True)
+    s_FloodProgramType = Column(String(50), nullable=True)
+    s_FloodConstructionType = Column(String(50), nullable=True)
+    s_isBuildingWallRoof = Column(String(50), nullable=True)
+
+    # Información adicional
+    d_InitialFirmDate = Column(Date, nullable=True)
+    s_DetachedGarage = Column(String(50), nullable=True)
+    s_AddExtOtherAttachedGarage = Column(String(50), nullable=True)
+    n_ReplacementCost = Column(Float, nullable=True)
+    n_ReplacementCostRatio = Column(Integer, nullable=True)
+    s_OtherBuilding = Column(String(50), nullable=True)
+    s_ContentLocationTRRP = Column(String(50), nullable=True)
+    s_PersonalPropertyHousehold = Column(String(50), nullable=True)
+    s_PersonalPropertyHouseholdDescribe = Column(String(255), nullable=True)
+    s_WithCOC_OR_EC = Column(String(50), nullable=True)
+    s_ElevationDifference = Column(Integer, nullable=True)
+    s_ElevationDifferenceTRRP = Column(String(50), nullable=True)
+    s_ElevationCertificateType = Column(Integer, nullable=True)
+
+    # Otros detalles
+    s_ElevatedBldgFreeObstruction = Column(Integer, nullable=True)
+    s_SubstantialImprovement = Column(String(50), nullable=True)
+    s_PolicyAssignment = Column(String(50), nullable=True)
+    n_PercResidentialPurposes = Column(Integer, nullable=True)
+    s_IsTownRowCondo = Column(String(50), nullable=True)
+    s_ResidentialUnit = Column(String(50), nullable=True)
+    s_NonResidentialUnit = Column(String(50), nullable=True)
+    s_TotalSqFootage = Column(Integer, nullable=True)
+    s_NonResidSqFootage = Column(String(50), nullable=True)
+
+    # Información adicional sobre el parque de casas móviles, hipoteca y demás
+    s_FloorInBuild = Column(String(50), nullable=True)
+    s_MobileHomePark = Column(String(50), nullable=True)
+    d_MobileHomeParkDate = Column(String(50), nullable=True)
+    s_IsPolicyMortgage = Column(String(50), nullable=True)
+    s_BaseFloodElevation = Column(Integer, nullable=True)
+    d_CurrentFirmDate = Column(Date, nullable=True)
+    s_IsPriorFIPPolicy = Column(String(50), nullable=True)
+    s_IsReqByLender = Column(String(50), nullable=True)
+    s_IsPriorNFIPLapsed = Column(String(50), nullable=True)
+
+    # Fecha de suspensión y reinstalación
+    s_IsCommunitySuspension = Column(String(50), nullable=True)
+    d_SuspensionDate = Column(Date, nullable=True)
+    d_ReinstatementDate = Column(Date, nullable=True)
+    s_IsEffeWithIn180Days = Column(String(50), nullable=True)
+
+    # Otras condiciones y propiedades
+    s_NoOfElevator = Column(Integer, nullable=True)
+    s_BldgConstructionType = Column(String(50), nullable=True)
+    s_NoOfDetatchedStruct = Column(Integer, nullable=True)
+    s_IsBldgContainME = Column(String(50), nullable=True)
+    s_AllMachinaryElevated = Column(String(50), nullable=True)
+    s_UnitLocatedOnFloor = Column(String(50), nullable=True)
+    s_IsPropNewlyMapped = Column(String(50), nullable=True)
+    s_IsNewPurchase = Column(String(50), nullable=True)
+    s_IsBldgNRHP = Column(String(50), nullable=True)
+
+    # Fechas y otra información
+    d_SubstantialImprovmentDate = Column(String(50), nullable=True)
+    s_IsPreFirmSubsidyEligible = Column(String(50), nullable=True)
+    s_RiskRating20 = Column(String(50), nullable=True)
+    s_IsAddInsureds = Column(String(50), nullable=True)
+    s_TableNo = Column(String(50), nullable=True)
+
+    # Metadatos y datos de usuario
+    #metadata = Column(String(255), nullable=True)
+    n_CreatedUser = Column(Integer, nullable=True)
+    d_CreatedDate = Column(DateTime, nullable=True)
+    n_UpdatedUser = Column(Integer, nullable=True)
+    d_UpdatedDate = Column(DateTime, nullable=True)
+

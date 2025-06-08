@@ -1,0 +1,49 @@
+version: '3.7'
+
+services:
+  nudges:
+    build: .
+    command: uvicorn app.main:app --host 0.0.0.0 --port 80 --reload
+    volumes:
+      - ./:/app
+    ports:
+      - 80:80
+    depends_on:
+      - db
+    networks:
+      - app-network
+      
+  dashboard:
+    build: .
+    command: streamlit run streamlit_app.py --server.port=8501 --server.address=0.0.0.0
+    volumes:
+      - ./:/app
+    ports:
+      - 8501:8501 # ejemplo 8501:8501
+    depends_on:
+      - db
+    networks:
+      - app-network
+      
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_USER: username
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: nudges
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - 3306:3306  # Expone el puerto para conexiones locales
+    expose:
+      - 3306
+    networks:
+      - app-network
+
+volumes:
+  mysql_data:
+
+networks:
+  app-network:
+    driver: bridge
