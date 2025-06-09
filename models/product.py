@@ -12,6 +12,3 @@ class Product(Base):
     category = Column(String(255), nullable=True)
     brand = Column(String(255), nullable=True)
     isActive = Column(Boolean, nullable=True)
-
-# Crear tablas
-Base.metadata.create_all(engine)

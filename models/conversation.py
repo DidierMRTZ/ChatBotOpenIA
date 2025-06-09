@@ -16,5 +16,3 @@ class Conversation(Base):
     TextCommet = Column(String(500), nullable=True)
     ChatId = Column(Integer, nullable=True)
 
-# Crear tablas
-Base.metadata.create_all(engine)

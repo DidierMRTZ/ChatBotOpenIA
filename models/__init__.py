@@ -8,3 +8,4 @@ from .invoice import Invoice
 from .conversation import Conversation
 from .chat import Chat
 from .gpt import Gpt
+from .sale import Sale

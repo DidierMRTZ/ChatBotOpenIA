@@ -8,6 +8,7 @@ from routes.companies import company
 from routes.clients import client
 from routes.inventories import inventory
 from routes.invoices import invoice
+from routes.sales import sale
 import models
 from config.Database import engine, Base
 
@@ -27,3 +28,4 @@ app.include_router(company)
 app.include_router(client)
 app.include_router(inventory)
 app.include_router(invoice)
+app.include_router(sale)
