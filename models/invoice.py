@@ -1,16 +1,34 @@
-from sqlalchemy import Column
-from sqlalchemy.sql.sqltypes import Integer, String
-from sqlalchemy.ext.declarative import declarative_base
-from config.Database import engine
+from sqlalchemy import Column, ForeignKey
+from sqlalchemy.sql.sqltypes import Integer, String, Float, DateTime
+from config.Database import engine, Base
+from datetime import datetime
 
-# Definir base y modelo
-Base = declarative_base()
+
+
 
 class Invoice(Base): # Changed from Factura
     __tablename__ = 'tb_invoices' # Changed from tb_facturas
-    invoiceId = Column(Integer, primary_key=True, index=True, autoincrement=True) # Changed from facturaId
-    firstName = Column(String(255), nullable=True) # Kept as per user model
-    lastName = Column(String(255), nullable=True)  # Kept as per user model
+    invoiceId = Column(Integer, primary_key=True, autoincrement=True)
+    
+    # Información básica
+    invoiceNumber = Column(String(100), unique=True, nullable=False)  # Número de factura único
+    issueDate = Column(DateTime, default=datetime.utcnow)  # Fecha de emisión
+    dueDate = Column(DateTime, nullable=True)  # Fecha de vencimiento
 
-# Crear tablas
-Base.metadata.create_all(bind=engine)
+    # Relación con cliente o compañía (asumimos que está relacionado con tb_company)
+    companyId = Column(Integer, ForeignKey("tb_companies.companyId"), nullable=False)
+    # Relación con cliente o compañía (asumimos que está relacionado con tb_company)
+    clientId = Column(Integer, ForeignKey("tb_clients.clientId"), nullable=False)
+
+
+    # Estado de la factura
+    status = Column(String(50), default="pendiente")  # Ej: pendiente, pagada, cancelada
+
+    # Timestamps
+    createdAt = Column(DateTime, default=datetime.utcnow)
+    updatedAt = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+
+#    # Totales
+#    subtotal = Column(Float, nullable=False)
+#    quantity = Column(Integer, nullable=False)
+#    total = Column(Float, nullable=False)

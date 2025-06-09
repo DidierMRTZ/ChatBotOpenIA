@@ -1,10 +1,6 @@
 from sqlalchemy import Column
 from sqlalchemy.sql.sqltypes import Integer, String # Removed unused Float, Text, DateTime, Boolean
-from sqlalchemy.ext.declarative import declarative_base
-from config.Database import engine
-
-# Definir base y modelo
-Base = declarative_base()
+from config.Database import engine, Base
 
 class Company(Base):
     __tablename__ = 'tb_companies'
@@ -15,5 +11,3 @@ class Company(Base):
     companyWebsite = Column(String(255), nullable=True)
     address = Column(String(255), nullable=True)
 
-# Crear tablas
-Base.metadata.create_all(bind=engine)

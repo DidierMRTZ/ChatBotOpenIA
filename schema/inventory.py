@@ -3,7 +3,6 @@ from typing import Optional
 from datetime import datetime
 
 class InventoryBase(BaseModel): # Changed from UserBase
-    inventoryId: Optional[int] = None
     productId: Optional[int] = None
     companyId: Optional[int] = None
     quantity: Optional[int] = None

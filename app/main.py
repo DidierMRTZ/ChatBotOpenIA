@@ -8,6 +8,11 @@ from routes.companies import company
 from routes.clients import client
 from routes.inventories import inventory
 from routes.invoices import invoice
+import models
+from config.Database import engine, Base
+
+# Crear todas las tablas
+Base.metadata.create_all(bind=engine)
 
 
 # Crear la instancia de la aplicación FastAPI

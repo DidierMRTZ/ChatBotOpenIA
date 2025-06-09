@@ -1,15 +1,11 @@
 from sqlalchemy import Column, ForeignKey
 from sqlalchemy.sql.sqltypes import Integer,Float, DateTime
-from sqlalchemy.ext.declarative import declarative_base
-from config.Database import engine
 from datetime import datetime
-
-# Definir base y modelo
-Base = declarative_base()
+from config.Database import engine, Base
 
 class Inventory(Base): # Changed from User
     __tablename__ = 'tb_inventories' # Changed from tb_users
-    inventoryId = Column(Integer, primary_key=True)
+    inventoryId = Column(Integer, primary_key=True, index=True, autoincrement=True)
     productId = Column(Integer, ForeignKey("tb_products.productId"))
     companyId = Column(Integer, ForeignKey("tb_companies.companyId"))
 
@@ -21,5 +17,3 @@ class Inventory(Base): # Changed from User
     updatedAt = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
 
-# Crear tablas
-Base.metadata.create_all(bind=engine)

@@ -1,10 +1,6 @@
 from sqlalchemy import Column 
 from sqlalchemy.sql.sqltypes import Integer, String, DateTime
-from sqlalchemy.ext.declarative import declarative_base
-from config.Database import engine
-
-# Definir base y modelo
-Base = declarative_base()
+from config.Database import engine, Base
 
 class Conversation(Base):
     __tablename__ = 'tb_conversations'
