@@ -1,9 +1,17 @@
 from pydantic import BaseModel
 from typing import Optional
+from datetime import datetime
 
 class InvoiceBase(BaseModel): # Changed from FacturaBase
-    firstName: Optional[str] = None # Kept as per user model
-    lastName: Optional[str] = None  # Kept as per user model
+    invoiceNumber: Optional[str] = None
+    issueDate: Optional[datetime] = None
+    dueDate: Optional[datetime] = None
+    companyId: Optional[int] = None
+    clientId: Optional[int] = None
+    status: Optional[str] = None
+    createdAt: Optional[datetime] = None
+    updatedAt: Optional[datetime] = None
+
 
     class Config:
         from_attributes = True # For Pydantic v2 ORM compatibility

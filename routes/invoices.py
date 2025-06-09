@@ -73,9 +73,16 @@ def get_invoices_summary(): # Renamed
     db = Session()
     # Query adjusted for Invoice model
     data = db.query(
-        Invoice.firstName, 
-        Invoice.lastName, 
+        Invoice.invoiceId,
+        Invoice.invoiceNumber,
+        Invoice.issueDate,
+        Invoice.dueDate,
+        Invoice.companyId,
+        Invoice.clientId,
+        Invoice.status,
+        Invoice.createdAt,
+        Invoice.updatedAt,
         func.count(Invoice.invoiceId) # Changed from Factura.facturaId
-    ).group_by(Invoice.firstName, Invoice.lastName).all()
+    ).group_by(Invoice.invoiceId).all()
     db.close()
     return data
