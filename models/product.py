@@ -1,5 +1,6 @@
 from sqlalchemy import Column 
 from sqlalchemy.sql.sqltypes import Integer, String, Boolean
+from sqlalchemy.schema import Index
 from config.Database import engine, Base
 
 class Product(Base):
@@ -12,3 +13,8 @@ class Product(Base):
     category = Column(String(255), nullable=True)
     brand = Column(String(255), nullable=True)
     isActive = Column(Boolean, nullable=True)
+    
+    __table_args__ = (
+        Index("idx_fulltext_description", "description", mysql_prefix="FULLTEXT"),
+        {},
+    )

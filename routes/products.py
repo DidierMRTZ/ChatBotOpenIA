@@ -6,6 +6,8 @@ from pydantic import BaseModel
 from typing import Optional, List
 from schema.product import ProductCreate, ProductUpdate, ProductRead # Changed from User schemas
 from starlette.status import HTTP_204_NO_CONTENT, HTTP_201_CREATED, HTTP_200_OK
+from sqlalchemy import select, desc
+from sqlalchemy.dialects.mysql import match
 
 product = APIRouter() # Changed from user
 
@@ -83,3 +85,20 @@ def get_products_sales(): # Renamed from get_users_sales
     ).group_by(Product.sku, Product.price, Product.stock, Product.description, Product.category, Product.brand, Product.isActive).all()
     db.close()
     return data
+
+
+
+@product.get('/productsDescription', status_code=HTTP_200_OK, response_model=List[ProductRead]) # Path and response_model changed
+def get_products_description(): # Renamed
+    Session = sessionmaker(bind=engine)
+    session = Session()
+
+    stmt = select(Product).where(
+    match(Product.description, against='+arroz')
+    )
+    products = session.execute(stmt).scalars().all()
+
+
+    session.close()
+
+    return products
