@@ -18,11 +18,6 @@ class CompanyCreate(CompanyBase):
 
 class CompanyRead(CompanyBase):
     companyId: int
-    # createdAt and updatedAt are not in the current model,
-    # but keeping them here if they are intended for future use or were from a previous version.
-    # If not, they can be removed.
-    # createdAt: Optional[datetime] = None 
-    # updatedAt: Optional[datetime] = None
 
 class CompanyUpdate(CompanyBase):
     # Similar to CompanyRead, createdAt and updatedAt are not in the current Company model.
