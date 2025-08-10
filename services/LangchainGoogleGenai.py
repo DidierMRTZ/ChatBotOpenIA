@@ -77,38 +77,3 @@ print(interactuar_con_chatbot("Hola, quiero comprar pan y leche."))
 
 
 
-prompt = ChatPromptTemplate.from_messages(
-    [
-        ("system", """ Eres un asistente matemático especializado. Utiliza únicamente las herramientas disponibles para responder preguntas relacionadas con matemáticas de manera precisa y concisa.
-
-          Si no cuentas con una herramienta específica para resolver una pregunta, infórmalo claramente, indica que no puedes responder y evita realizar cualquier invocación innecesaria.
-
-          Proporciona solo la respuesta en el formato más directo posible. Por ejemplo:
-          Human: ¿Cuánto es 1 + 1?
-          AI: 2
-        """),
-     MessagesPlaceholder("chat_history", optional=True),
-     ("human", "{input}"),
-     MessagesPlaceholder("agent_scratchpad"),
-     ]
-)
-
-
-#elige el modelo LLM
-
-# Configurar el modelo LLM
-llm = ChatGoogleGenerativeAI(
-    model="gemini-2.5-flash",
-    google_api_key=api_key,
-)
-
-tolkit = [add]
-
-#construimos el agebte LLM
-agent = create_openai_tools_agent(llm , tolkit, prompt)
-
-#crear ejecutor
-agent_executor = AgentExecutor(agent=agent, tools=tolkit, verbose=True)
-
-
-result = agent_executor.invoke({"input": ("Hola, quiero comprar pan y leche.")})
